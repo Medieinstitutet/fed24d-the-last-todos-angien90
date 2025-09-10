@@ -1,9 +1,10 @@
 # 📌 Rättningsrapport – fed24d-the-last-todos-angien90
 
 ## 🎯 Uppgiftens Krav:
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Tfc19Mhg)
 # Inlämningsuppgift Todo
 
-I denna inlämningsuppgift kommer ni att skapa er egen todo-lista i en react-applikation.
+I denna inlämningsuppgift kommer ni att skapa er egen todo-lista.
 Sidan skall visa ett antal punkter som skall göras. Dessa skall då komma upp på skärmen i form av en lista. När uppgiften är slutförd skall användaren kunna markera uppgiften som slutförd och uppgiften skall då tas bort från listan.
 
 ## Betyg G
@@ -11,17 +12,20 @@ Sidan skall visa ett antal punkter som skall göras. Dessa skall då komma upp p
 - Skapa en hårdkodad lista med punkter att göra (hitta på egna punkter, dessa skall inte bara vara en text)
 - Presentera listan på skärmen, helst med lite kontroll. Detta betyder i en html-struktur t.ex. i en ul/li-lista
 - Implementera klickhändelse för att hantera borttagandet av en todo.
-- Todo markeras som klar/tas bort från skärmen och markeras som klar i javascript-listan.
+- Todo markeras som klar på skärmen och markeras som klar i javascript-listan.
+- Ni behöver använda localStorage så att listan inte börjar om från början varje gång sidan används.
+- Ni behöver använda er av en komponent.
+- Ni behöver använda er av state med en lista med objekt.
 
 ## Betyg VG
 
 - Alla punkter under G
 - Kunna visa även klara händelser och klicka tillbaka den så att de blir oklara igen.
 - Skapa ett formulär som tillåter att en användare skapar nya todos efterhand.
-- Använda lifting state up för att dela upp dina komponenter bättre.
 - Kunna sortera ordningen på dina todos.
-- Implementera ett valfritt grafiskt ramverk till din todolista, t.ex. material ui eller tailwind.
-- Egen css får gärna skrivas och då skall ni ha en bra struktur och använda flex eller grid på ett bra sätt.
+- Implementera ett valfritt grafiskt ramverk, t.ex. tailwind eller material ui.
+- Ni behöver ha minst tre komponenter.
+- Ni måste använda Lifting State Up.
 
 ## Allmänt
 
@@ -46,11 +50,25 @@ för att köra projektet.
 - Ha roligt, skratta när det blir fel och fortsätt att vara nyfiken :)
 
 
+---
+
+## Komponenthierarki 
+
+ShoppingList                <-- Parent (root för listan och state)
+├── ItemForm                <-- Child (formulär för att lägga till ny vara)
+├── SortButtons             <-- Child (knappar för sortering)
+├── ShoppingListView        <-- Child (renderar listan)
+│   ├── ShoppingListItem    <-- Grandchild (enskilda listobjekt)
+│   ├── ShoppingListItem
+│   └── ...                
+├── CompletedItems          <-- Child (visar avklarade varor)
+└── EditMode                <-- Child (redigeringsläge, visas när man trycker på ändra-knappen)
+
 ## 🔍 ESLint-varningar:
 - C:\Work\AssignmentCorrector\backend\repos\fed24d-the-last-todos-angien90\src\hooks\useShoppingItems.ts - no-console - Unexpected console statement.,no-unused-vars - 'i' is defined but never used.
 
 ## 🏆 **Betyg: VG**
-📌 **Motivering:** Koden uppfyller alla krav för både G och VG. Projektet inkluderar en hårdkodad lista, tillåter borttagning och återställning av todo-poster, stödjer att lägga till nya todos genom ett formulär, och använder lifting state up för delning av komponentdata. Användargränssnittet är designat med Tailwind CSS, vilket visar en förståelse för grafiska ramverk utöver egen CSS. Applikationen har även funktionalitet för sortering av todos.
+📌 **Motivering:** Koden uppfyller samtliga krav för betyg VG. Den innehåller möjlighet att visa och återställa slutförda todos, ett formulär för att lägga till nya todos, funktionalitet för att sortera todos, och användning av ett grafiskt ramverk (Tailwind CSS). Projektet innehåller även minst tre komponenter och använder sig av 'Lifting State Up' korrekt.
 
 💡 **Förbättringsförslag:**  
-Koden är överlag välstrukturerad och följer en bra komponentbaserad design med React. Dock kunde dokumentationen i form av kommentarer vara mer omfattande för att förbättra förståelsen av specifika kodstycken, särskilt för andra som läser och underhåller koden. Felhanteringen i formulärinput kunde också ha en mer användarvänlig visning, som till exempel direkt feedback bredvid vilket fält som är felaktigt. Kontrollera också om det finns några redundanta eller oanvända import-satser för att förbättra prestanda och underhållbarhet.
+Koden är överlag bra strukturerad och väldokumenterad. För framtida förbättringar skulle kodläsbarheten kunna ökas något genom att bryta ut vissa stycken till mindre, mer specifika funktioner eller komponenter, speciellt där logiken är lite mer omfattande. För att förbättra användarupplevelsen ytterligare kan fler hjälpsamma användarmeddelanden eller visuell feedback implementeras, exempelvis när en sortering tillämpas eller när en redigering sparas.
